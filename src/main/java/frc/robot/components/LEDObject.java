@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+package frc.robot.components;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
@@ -21,7 +21,7 @@ public class LEDObject
     public void SetStripColor(int r, int g, int b)
     {
         for (int i = 0; i < StripBuffer.getLength(); i++)
-            StripBuffer.setRGB(i, r, g, b)
+            StripBuffer.setRGB(i, r, g, b);
         
             Strip.setData(StripBuffer);
     }
