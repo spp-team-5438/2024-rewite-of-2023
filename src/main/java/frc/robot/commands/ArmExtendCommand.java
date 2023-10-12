@@ -6,7 +6,7 @@ import frc.robot.subsystems.ControllerSubsystem;
 
 public class ArmExtendCommand {
     public ControllerSubsystem controllerSubsystem;
-    public static ArmSubsystem armSubsystem;
+    public ArmSubsystem armSubsystem;
 
     public ArmExtendCommand(ArmSubsystem armSub) {
         armSubsystem = armSub;

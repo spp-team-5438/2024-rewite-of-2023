@@ -1,21 +1,18 @@
 package frc.robot.subsystems;
 
+import frc.robot.components.*;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 
 public class LedSubsystem {
-    public static AddressableLED sponsorStrip1;
-    public AddressableLED electronicStrip;
-    public static AddressableLEDBuffer sponsorStrip1Buffer;
-    public AddressableLEDBuffer electronicLedBuffer;
+
+    
+    public LEDObject sponsorLED = new LEDObject(0, 56);
+
 
     public LedSubsystem()
     {
-        sponsorStrip1 = new AddressableLED(0);
-        sponsorStrip1Buffer = new AddressableLEDBuffer(56);
-        sponsorStrip1.setLength(56);
-        sponsorStrip1.setData(sponsorStrip1Buffer);
-        sponsorStrip1.start();
+
     }
     
     public void setStripColor(AddressableLED m_led, AddressableLEDBuffer m_ledbuffer, int r, int g, int b) {

@@ -17,8 +17,6 @@ public class HandSubsystem {
     public CANSparkMax rightIntake = new CANSparkMax(8, MotorType.kBrushless);
     public static CANSparkMax wrist = new CANSparkMax(9, MotorType.kBrushless);
     public static SparkMaxAbsoluteEncoder wrist_encoder = wrist.getAbsoluteEncoder(Type.kDutyCycle);
-    public static LedSubsystem ledSubsystem = new LedSubsystem();
-
 
     public static ArmFeedforward wristfeedforward = new ArmFeedforward(0.1, 0.3, 1.71,0.02);
 
