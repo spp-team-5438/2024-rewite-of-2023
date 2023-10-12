@@ -17,8 +17,7 @@ public class HandSubsystem {
     public CANSparkMax rightIntake = new CANSparkMax(8, MotorType.kBrushless);
     public static CANSparkMax wrist = new CANSparkMax(9, MotorType.kBrushless);
     public static SparkMaxAbsoluteEncoder wrist_encoder = wrist.getAbsoluteEncoder(Type.kDutyCycle);
-    static LedSubsystem ledSubsystem;
-    ledSubsystem = new LedSubsystem();
+    public static LedSubsystem ledSubsystem = new LedSubsystem();
 
 
     public static ArmFeedforward wristfeedforward = new ArmFeedforward(0.1, 0.3, 1.71,0.02);
@@ -30,23 +29,10 @@ public class HandSubsystem {
         HandSolenoid.set(Value.kOff);
         HandSolenoid.set(Value.kReverse);    
         RoboComp.enableCompressorAnalog(80, 110);
-
-        if (HandSolenoid.get() == Value.kReverse)
-            ledSubsystem.setStripColor(LedSubsystem.sponsorStrip1, LedSubsystem.sponsorStrip1Buffer, 255, 128, 0);
-        else
-            ledSubsystem.setStripColor(LedSubsystem.sponsorStrip1, LedSubsystem.sponsorStrip1Buffer, 255, 0, 255);
-    }
-    
-    public static void solenoidToggle() {
-        HandSolenoid.toggle();
-        if (HandSolenoid.get() == Value.kReverse)
-            ledSubsystem.setStripColor(LedSubsystem.sponsorStrip1, LedSubsystem.sponsorStrip1Buffer, 255, 128, 0);
-        else
-            ledSubsystem.setStripColor(LedSubsystem.sponsorStrip1, LedSubsystem.sponsorStrip1Buffer, 255, 0, 255);
     }
 
     public static void useOutput(double destination) {
-       wrist_controller.setReference(destination,CANSparkMax.ControlType.kPosition);
+       // wrist_controller.setReference(destination,CANSparkMax.ControlType.kPosition);
        wristfeedforward.calculate(wrist_encoder.getPosition(), destination);
     }
 }
